@@ -1,9 +1,15 @@
 label main_menu:
     return
 
-init python:
-    from alifesim.player import Player
-
 label start:
-    "Hi"
+    menu:
+        "test 0":
+            call test_0
+    return
+
+label test_0:
+    show screen player
+    "...Lets call our player 'player'"
+    $ player.name = 'player'
+    "..."
     return
