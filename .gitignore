@@ -3,3 +3,4 @@ cache/
 *.rpyc
 log.txt
 errors.txt
+traceback.txt
