@@ -15,31 +15,16 @@
 ##  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ##
 
-screen player():
+screen select_friends(n):
+    default selected = []
+    $ ui_helpers.register_select(selected, n)
     frame:
-        vbox:
-            text player.name
-            text "${}".format(player.money)
-            $ stats = alifesim.stat.get_stats(player)
-            for stat in stats:
-                text "{}: {}".format(stat, stats[stat])
-
-screen friend(name):
-    default friend = get_by_name(name)
-    frame:
-        vbox:
-            text friend.name
-            textbutton "Select":
-                action Function(ui_helpers.select, friend)
-
-screen friends():
-    frame:
-        vbox:
-            for name in player.friends:
-                use friend(name)
-
-screen all():
-    hbox:
-        xalign 1.0
-        use friends
-        use player
+        has vbox
+        for i in range(n):
+            frame:
+                if i < len(selected):
+                    text selected[i].name
+                else:
+                    text "<empty>"
+        textbutton "ok":
+            sensitive len(selected) == n

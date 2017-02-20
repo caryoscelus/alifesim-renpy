@@ -21,5 +21,6 @@ label test_1:
         from alifesim.playground import setup_friends
         setup_friends(player)
     show screen all
+    show screen select_friends(1)
     "..."
     return
