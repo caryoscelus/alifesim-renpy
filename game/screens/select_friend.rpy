@@ -15,16 +15,20 @@
 ##  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ##
 
-screen select_friends(n):
-    default selected = []
-    $ ui_helpers.register_select(selected, n)
+screen select_friends(min_, max_):
+    default selected = ui_helpers.new_selection(min_, max_)
     frame:
         has vbox
-        for i in range(n):
+        for i in range(max_):
             frame:
                 if i < len(selected):
                     text selected[i].name
+                elif i < min_:
+                    text "<required>"
                 else:
                     text "<empty>"
         textbutton "ok":
-            sensitive len(selected) == n
+            sensitive selected.ready()
+
+screen socialize(activity):
+    use select_friends(activity.people_min, activity.people_max)
