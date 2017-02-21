@@ -29,6 +29,8 @@ screen select_friends(min_, max_):
                     text "<empty>"
         textbutton "ok":
             sensitive selected.ready()
+            action Function(ui_helpers.process_selection)
 
 screen socialize(activity):
+    default result = ui_helpers.set_selection_processor(activity.make_and_run)
     use select_friends(activity.people_min, activity.people_max)
