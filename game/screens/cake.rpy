@@ -21,3 +21,10 @@ screen cake():
         has vbox
         text "Cake eaten!"
         textbutton "Ok" action Hide('cake')
+
+screen cake_special(person):
+    modal True
+    frame:
+        has vbox
+        text "{} got poisoned by the cake O_o".format(person.name)
+        textbutton "Close" action Hide('cake_special')
