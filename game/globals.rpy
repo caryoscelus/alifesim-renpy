@@ -12,3 +12,4 @@ init -1 python:
     hidden_imports()
 
 default player = Player()
+default world = alifesim.entity.world
