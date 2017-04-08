@@ -28,7 +28,7 @@ screen friend(name):
     default friend = get_by_name(name)
     frame:
         vbox:
-            text friend.name
+            text "{}: {}".format(friend.name, friend.satiation)
             textbutton "Select":
                 sensitive ui_helpers.can_select()
                 action Function(ui_helpers.select, friend)

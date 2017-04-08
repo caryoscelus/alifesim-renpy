@@ -25,6 +25,11 @@ label test_1:
     show screen all
     show screen socialize(playground.EatCake)
     "..."
+    hide screen all
+    hide screen socialize
+    "..."
+    show screen all
+    "..."
     return
 
 label test_2:
