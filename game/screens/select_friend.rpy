@@ -22,7 +22,9 @@ screen select_friends(min_, max_):
         for i in range(max_):
             frame:
                 if i < len(selected):
-                    text selected[i].name
+                    hbox:
+                        text selected[i].name
+                        textbutton "x" action Function(ui_helpers.deselect, selected[i])
                 elif i < min_:
                     text "<required>"
                 else:
