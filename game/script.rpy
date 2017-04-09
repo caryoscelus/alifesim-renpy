@@ -13,6 +13,8 @@ label start:
             call test_3
         "test 4 (item market)":
             call test_4
+        "test 5 (top panel)":
+            call test_5
     return
 
 label test_0:
@@ -23,10 +25,8 @@ label test_0:
     return
 
 label test_1:
-    python:
-        from alifesim.playground import setup_friends
-        setup_friends(player)
-    show screen all
+    $ playground.setup_friends(player)
+    show screen player_and_friends
     show screen socialize(playground.EatCake)
     "..."
     hide screen all
@@ -37,27 +37,28 @@ label test_1:
     return
 
 label test_2:
-    python:
-        from alifesim.playground import get_a_job
-        get_a_job(player)
+    $ playground.get_a_job(player)
     show screen calendar
     "..."
     return
 
 label test_3:
-    python:
-        from alifesim.playground import setup_jobs
-        setup_jobs()
+    $ playground.setup_jobs()
     show screen job_market()
     "..."
     return
 
 label test_4:
     python:
-        from alifesim.playground import setup_items
-        setup_items()
+        playground.setup_items()
         player.money = 300
     show screen item_market
     show screen items
+    "..."
+    return
+
+label test_5:
+    $ playground.setup_all(player)
+    show screen top_panel
     "..."
     return

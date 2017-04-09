@@ -39,7 +39,7 @@ screen friends():
             for name in player.friends:
                 use friend(name)
 
-screen all():
+screen player_and_friends():
     hbox:
         xalign 1.0
         use friends

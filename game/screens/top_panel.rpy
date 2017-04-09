@@ -15,17 +15,18 @@
 ##  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ##
 
-init python:
-    ## TODO: move to core
-    def change_job(ajob):
-        player.job = ajob.name
+## Top panel: switch between active screens
 
-screen job_market():
+init python:
+    def toggle_screen(scr):
+        if renpy.get_screen(scr):
+            renpy.hide_screen(scr)
+        else:
+            renpy.show_screen(scr)
+
+screen top_panel:
     frame:
-        has vbox
-        text "Current job: {}".format(player.job)
-        for ajob in job.all_jobs():
-            frame:
-                has vbox
-                text "{} ({} / day)".format(ajob.name, ajob.payment)
-                textbutton "apply" action Function(change_job, ajob)
+        xalign 0.5 yalign 0.0
+        has hbox
+        for scr in ['items', 'item_market', 'job_market', 'calendar', 'player_and_friends']:
+            textbutton scr action Function(toggle_screen, scr)
