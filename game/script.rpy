@@ -15,6 +15,8 @@ label start:
             call test_4
         "test 5 (top panel)":
             call test_5
+        "test 6 (hack together)":
+            call test_6
     return
 
 label test_0:
@@ -61,4 +63,13 @@ label test_5:
     $ playground.setup_all(player)
     show screen top_panel
     "..."
+    return
+
+screen dummy:
+    xalign 0.0
+
+label test_6:
+    $ playground.setup_all(player)
+    show screen next_day
+    call screen top_panel
     return
