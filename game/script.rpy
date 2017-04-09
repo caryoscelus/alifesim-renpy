@@ -17,6 +17,8 @@ label start:
             call test_5
         "test 6 (hack together)":
             call test_6
+        "test 7 (courses)":
+            call test_7
     return
 
 label test_0:
@@ -72,4 +74,10 @@ label test_6:
     $ playground.setup_all(player)
     show screen next_day
     call screen top_panel
+    return
+
+label test_7:
+    $ playground.setup_courses()
+    show screen courses
+    "..."
     return

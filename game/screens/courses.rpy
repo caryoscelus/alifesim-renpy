@@ -15,18 +15,20 @@
 ##  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ##
 
-## Top panel: switch between active screens
-
 init python:
-    def toggle_screen(scr):
-        if renpy.get_screen(scr):
-            renpy.hide_screen(scr)
+    ## TODO: move to core
+    def toggle_course(course):
+        if course.name in player.courses:
+            player.courses.remove(course.name)
         else:
-            renpy.show_screen(scr)
+            player.courses.add(course.name)
 
-screen top_panel:
+screen courses():
+    $ clist = courses.all()
     frame:
-        xalign 0.5 yalign 0.0
-        has hbox
-        for scr in ['items', 'item_market', 'job_market', 'courses', 'calendar', 'player_and_friends']:
-            textbutton scr action Function(toggle_screen, scr)
+        has grid 2 len(clist)+1
+        text "Courses"
+        text ""
+        for course in clist:
+            text course.name
+            textbutton "({})".format('x' if course.name in player.courses else ' ') action Function(toggle_course, course)
