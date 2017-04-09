@@ -5,10 +5,12 @@ label start:
     menu:
         "test 0":
             call test_0
-        "test 1":
+        "test 1 (friend select)":
             call test_1
-        "test 2":
+        "test 2 (calendar)":
             call test_2
+        "test 3 (job market)":
+            call test_3
     return
 
 label test_0:
@@ -37,5 +39,13 @@ label test_2:
         from alifesim.playground import get_a_job
         get_a_job(player)
     show screen calendar
+    "..."
+    return
+
+label test_3:
+    python:
+        from alifesim.playground import setup_jobs
+        setup_jobs()
+    show screen job_market()
     "..."
     return
