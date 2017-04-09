@@ -23,6 +23,7 @@ screen calendar:
     default today = date.today()
     default date_start = today-timedelta(today.weekday())
     frame:
+        xalign 0.0 yalign 1.0
         has grid DAYS_IN_WEEK DISPLAY_WEEKS
         for week in range(DISPLAY_WEEKS):
             for day in range(DAYS_IN_WEEK):
