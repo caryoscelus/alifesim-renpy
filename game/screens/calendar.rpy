@@ -28,4 +28,10 @@ screen calendar:
             for day in range(DAYS_IN_WEEK):
                 $ day = date_start+timedelta(week*7+day)
                 frame:
+                    has vbox
                     text "{}".format(day.day) bold (day == today)
+                    for slot in range(WeekTime.DAY_SLOTS):
+                        frame:
+                            has vbox
+                            for task in plan.get_plan(player, RealTime(day, slot)):
+                                text "{}".format(task.name)

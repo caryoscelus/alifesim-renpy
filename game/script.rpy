@@ -33,6 +33,9 @@ label test_1:
     return
 
 label test_2:
+    python:
+        from alifesim.playground import get_a_job
+        get_a_job(player)
     show screen calendar
     "..."
     return
