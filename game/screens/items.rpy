@@ -15,16 +15,11 @@
 ##  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ##
 
-init python:
-    ## TODO: move to core
-    def buy_item(item):
-        money.spend_money(player, item.price, lambda: items.give(player, item))
-
-screen item_market():
+screen items():
     frame:
+        xalign 1.0
         has vbox
-        for item in items.all():
-            frame:
-                has vbox
-                text "{} ({})".format(item.name, item.price)
-                textbutton "buy" action Function(buy_item, item)
+        text "$ {}".format(player.money)
+        text "Inventory"
+        for item_name in player.items:
+            text item_name

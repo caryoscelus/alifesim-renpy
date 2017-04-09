@@ -56,6 +56,8 @@ label test_4:
     python:
         from alifesim.playground import setup_items
         setup_items()
+        player.money = 300
     show screen item_market
+    show screen items
     "..."
     return

@@ -7,12 +7,10 @@ init -1 python:
     from alifesim import ui_helpers
     ui_helpers.show_screen = renpy.show_screen
     from alifesim import playground
-    from alifesim import plan
-    from alifesim import job
-    from alifesim import items
+    from alifesim import plan, job, items, money
     from alifesim.plan import WeekTime, RealTime
     def hidden_imports():
-        from alifesim import name, money, basic_stats, job
+        from alifesim import name, basic_stats, job
     hidden_imports()
 
 default player = Player()
