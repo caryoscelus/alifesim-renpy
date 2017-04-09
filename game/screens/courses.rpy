@@ -26,9 +26,10 @@ init python:
 screen courses():
     $ clist = courses.all()
     frame:
-        has grid 2 len(clist)+1
+        has vbox
         text "Courses"
-        text ""
         for course in clist:
-            text course.name
-            textbutton "({})".format('x' if course.name in player.courses else ' ') action Function(toggle_course, course)
+            frame:
+                has hbox
+                textbutton "({})".format('x' if course.name in player.courses else ' ') action Function(toggle_course, course)
+                text "{}".format(course.name)
