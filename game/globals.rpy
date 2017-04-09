@@ -9,6 +9,7 @@ init -1 python:
     from alifesim import playground
     from alifesim import plan
     from alifesim import job
+    from alifesim import items
     from alifesim.plan import WeekTime, RealTime
     def hidden_imports():
         from alifesim import name, money, basic_stats, job

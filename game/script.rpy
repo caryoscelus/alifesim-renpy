@@ -11,6 +11,8 @@ label start:
             call test_2
         "test 3 (job market)":
             call test_3
+        "test 4 (item market)":
+            call test_4
     return
 
 label test_0:
@@ -47,5 +49,13 @@ label test_3:
         from alifesim.playground import setup_jobs
         setup_jobs()
     show screen job_market()
+    "..."
+    return
+
+label test_4:
+    python:
+        from alifesim.playground import setup_items
+        setup_items()
+    show screen item_market
     "..."
     return
