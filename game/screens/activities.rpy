@@ -28,7 +28,12 @@ screen socialize(activity):
         use select_friends()
 
 init python:
+    def socialize_processor(activity):
+        def f(*selection):
+            renpy.hide_screen('socialize')
+            activity.make_and_run(*selection)
+        return f
     def prepare_socialize(activity):
-        selection_manager.set_processor(activity.make_and_run)
+        selection_manager.set_processor(socialize_processor(activity))
         selection_manager.new(activity.people_min, activity.people_max)
         renpy.show_screen('socialize', activity)
