@@ -15,18 +15,8 @@
 ##  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ##
 
-## Top panel: switch between active screens
-
-init python:
-    def toggle_screen(scr):
-        if renpy.get_screen(scr):
-            renpy.hide_screen(scr)
-        else:
-            renpy.show_screen(scr)
-
-screen top_panel:
+screen social_activities:
     frame:
-        xalign 0.5 yalign 0.0
-        has hbox
-        for scr in ['items', 'item_market', 'job_market', 'courses', 'calendar', 'player_and_friends', 'social_activities']:
-            textbutton scr action Function(toggle_screen, scr)
+        has vbox
+        for activity in socialize.all():
+            textbutton "{}".format(activity.__name__)
