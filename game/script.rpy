@@ -31,12 +31,7 @@ label test_0:
 label test_1:
     $ playground.setup_friends(player)
     show screen player_and_friends
-    show screen socialize(playground.EatCake)
-    "..."
-    hide screen all
-    hide screen socialize
-    "..."
-    show screen all
+    $ prepare_socialize(playground.EatCake)
     "..."
     return
 

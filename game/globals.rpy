@@ -16,3 +16,4 @@ init -1 python:
 
 default player = Player()
 default world = alifesim.entity.world
+default selection_manager = ui_helpers.selection_manager

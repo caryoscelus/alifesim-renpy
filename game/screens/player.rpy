@@ -30,8 +30,8 @@ screen friend(name):
         vbox:
             text "{}: {}".format(friend.name, friend.satiation)
             textbutton "Select":
-                sensitive ui_helpers.can_select()
-                action Function(ui_helpers.select, friend)
+                sensitive selection_manager.can_select()
+                action Function(selection_manager.select, friend)
 
 screen friends():
     frame:

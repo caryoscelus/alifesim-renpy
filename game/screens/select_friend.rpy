@@ -15,8 +15,10 @@
 ##  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ##
 
-screen select_friends(min_, max_):
-    default selected = ui_helpers.new_selection(min_, max_)
+screen select_friends():
+    $ selected = selection_manager.selection
+    $ min_ = selected.min
+    $ max_ = selected.max
     frame:
         has vbox
         for i in range(max_):
@@ -24,15 +26,23 @@ screen select_friends(min_, max_):
                 if i < len(selected):
                     hbox:
                         text selected[i].name
-                        textbutton "x" action Function(ui_helpers.deselect, selected[i])
+                        textbutton "x" action Function(selection_manager.deselect, selected[i])
                 elif i < min_:
                     text "<required>"
                 else:
                     text "<empty>"
         textbutton "ok":
             sensitive selected.ready()
-            action Function(ui_helpers.process_selection)
+            action Function(selection_manager.process)
 
 screen socialize(activity):
-    default result = ui_helpers.set_selection_processor(activity.make_and_run)
-    use select_friends(activity.people_min, activity.people_max)
+    frame:
+        has vbox
+        text "{}".format(activity.__name__)
+        use select_friends()
+
+init python:
+    def prepare_socialize(activity):
+        selection_manager.set_processor(activity.make_and_run)
+        selection_manager.new(activity.people_min, activity.people_max)
+        renpy.show_screen('socialize', activity)

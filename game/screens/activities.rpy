@@ -19,4 +19,4 @@ screen social_activities:
     frame:
         has vbox
         for activity in socialize.all():
-            textbutton "{}".format(activity.__name__)
+            textbutton "{}".format(activity.__name__) action Function(prepare_socialize, activity)
