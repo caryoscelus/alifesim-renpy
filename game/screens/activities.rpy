@@ -20,14 +20,14 @@ screen social_activities:
         has vbox
         text "Social activities:"
         for activity in socialize.all():
-            textbutton "{}".format(activity.name) action Function(prepare_socialize, activity)
+            textbutton "{}".format(activity.name) action [Function(prepare_socialize, activity), Hide('social_activities')]
 
 screen single_activities:
     frame:
         has vbox
         text "Single activities:"
         for activity in unsocialize.all():
-            textbutton "{}".format(activity.name) action Function(activity.make_and_run)
+            textbutton "{}".format(activity.name) action [Function(activity.make_and_run), Hide('single_activities')]
 
 screen socialize(activity):
     frame:
