@@ -28,5 +28,5 @@ screen top_panel:
     frame:
         xalign 0.5 yalign 0.0
         has hbox
-        for scr in ['items', 'item_market', 'job_market', 'courses', 'calendar', 'player_and_friends', 'social_activities']:
+        for scr in ['items', 'item_market', 'job_market', 'courses', 'calendar', 'player_and_friends', 'social_activities', 'single_activities']:
             textbutton scr action Function(toggle_screen, scr)

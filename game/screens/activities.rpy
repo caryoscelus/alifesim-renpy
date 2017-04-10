@@ -18,13 +18,21 @@
 screen social_activities:
     frame:
         has vbox
+        text "Social activities:"
         for activity in socialize.all():
-            textbutton "{}".format(activity.__name__) action Function(prepare_socialize, activity)
+            textbutton "{}".format(activity.name) action Function(prepare_socialize, activity)
+
+screen single_activities:
+    frame:
+        has vbox
+        text "Single activities:"
+        for activity in unsocialize.all():
+            textbutton "{}".format(activity.name) action Function(activity.make_and_run)
 
 screen socialize(activity):
     frame:
         has vbox
-        text "{}".format(activity.__name__)
+        text "{}".format(activity.name)
         use select_friends()
 
 init python:
