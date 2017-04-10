@@ -34,15 +34,3 @@ screen select_friends():
         textbutton "ok":
             sensitive selected.ready()
             action Function(selection_manager.process)
-
-screen socialize(activity):
-    frame:
-        has vbox
-        text "{}".format(activity.__name__)
-        use select_friends()
-
-init python:
-    def prepare_socialize(activity):
-        selection_manager.set_processor(activity.make_and_run)
-        selection_manager.new(activity.people_min, activity.people_max)
-        renpy.show_screen('socialize', activity)

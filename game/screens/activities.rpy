@@ -20,3 +20,15 @@ screen social_activities:
         has vbox
         for activity in socialize.all():
             textbutton "{}".format(activity.__name__) action Function(prepare_socialize, activity)
+
+screen socialize(activity):
+    frame:
+        has vbox
+        text "{}".format(activity.__name__)
+        use select_friends()
+
+init python:
+    def prepare_socialize(activity):
+        selection_manager.set_processor(activity.make_and_run)
+        selection_manager.new(activity.people_min, activity.people_max)
+        renpy.show_screen('socialize', activity)
