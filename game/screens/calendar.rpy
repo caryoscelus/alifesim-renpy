@@ -20,7 +20,7 @@ init python:
     DISPLAY_WEEKS = 2
 
 screen calendar:
-    $ today = date.today
+    $ today = date.today.date
     $ date_start = today-timedelta(today.weekday())
     frame:
         xalign 0.0 yalign 1.0
@@ -31,7 +31,7 @@ screen calendar:
                 frame:
                     has vbox
                     text "{}".format(day.day) bold (day == today)
-                    for slot in range(WeekTime.DAY_SLOTS):
+                    for slot in range(date.DAY_SLOTS):
                         frame:
                             has vbox
                             for task in plan.get_plan(player, RealTime(day, slot)):

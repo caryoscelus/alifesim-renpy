@@ -19,4 +19,4 @@ screen next_day:
     frame:
         xalign 1.0 yalign 1.0
         has vbox
-        textbutton "Next day" action Function(day.next_day)
+        textbutton "Advance" action Function(day.tick)
