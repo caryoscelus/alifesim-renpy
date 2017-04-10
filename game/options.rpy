@@ -12,7 +12,7 @@
 ##
 ## The _() surrounding the string marks it as eligible for translation.
 
-define config.name = _("alifesim-renpy")
+define config.name = _("alifesim")
 
 
 ## Determines if the title given above is shown on the main menu screen. Set
@@ -23,7 +23,7 @@ define gui.show_name = True
 
 ## The version of the game.
 
-define config.version = "1.0"
+define config.version = "2017.04.10.0"
 
 
 ## Text that is placed on the game's about screen. To insert a blank line
@@ -36,7 +36,7 @@ define gui.about = _("")
 ## distribution. This must be ASCII-only, and must not contain spaces, colons,
 ## or semicolons.
 
-define build.name = "alifesim-renpy"
+define build.name = "alifesim"
 
 
 ## Sounds and music ############################################################
