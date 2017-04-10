@@ -20,4 +20,4 @@ screen plans:
         has vbox
         text "Plans for now:"
         for task in plan.get_plan(player, date.today):
-            textbutton task.name
+            textbutton task.name action Function(task.event.proceed)
