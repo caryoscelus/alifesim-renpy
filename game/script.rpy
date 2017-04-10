@@ -1,7 +1,12 @@
 label main_menu:
     return
 
+define demo = True
+
 label start:
+    if demo:
+        call test_6
+        return
     menu:
         "test 0":
             call test_0
@@ -68,6 +73,9 @@ screen dummy:
 label test_6:
     $ playground.setup_all(player)
     show screen next_day
+    show screen plans
+    show screen calendar
+    show screen player_and_friends
     call screen top_panel
     return
 
